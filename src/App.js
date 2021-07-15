@@ -4,7 +4,6 @@ import {useEffect, useState} from "react";
 
 function App() {
     const [users, setUsers] = useState([]);
-    const [text, setText] = useState('')
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
@@ -16,6 +15,7 @@ function App() {
     }, []);
 
     const onChangeHandler = (event) => {
+        const text = event.target.value;
         let matches = [];
         if (text.length > 0) {
             matches = users.filter(usr => {
@@ -23,9 +23,7 @@ function App() {
                 return usr.email.match(regex);
             })
         }
-        console.log('matches', matches)
         setSuggestions(matches);
-        setText(event.target.value);
     }
 
     return (
@@ -34,6 +32,9 @@ function App() {
                    onChange={onChangeHandler}
                    className="col input mt-3"
             />
+            {suggestions && suggestions.map((suggestion, i) =>
+                <div className="col" key={i}>{suggestion.email}</div>
+            )}
         </div>
     );
 }
