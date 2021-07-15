@@ -19,7 +19,13 @@ function App() {
     const onSuggestHandler = (suggestionText) => {
         setText(suggestionText);
         setSuggestions([]);
-    }
+    };
+
+    const clearSuggestions = () => {
+        setTimeout(() => {
+            setSuggestions([]);
+        }, 200);
+    };
 
     const onChangeHandler = (event) => {
         const inputText = event.target.value;
@@ -32,7 +38,7 @@ function App() {
         }
         setText(inputText);
         setSuggestions(matches);
-    }
+    };
 
     return (
         <div className="container">
@@ -40,6 +46,7 @@ function App() {
                    onChange={onChangeHandler}
                    className="col input mt-3"
                    value={text}
+                   onBlur={clearSuggestions}
             />
             {suggestions && suggestions.map((suggestion, i) =>
                 <div className="col border-right border-left border-bottom pointer suggestion"
