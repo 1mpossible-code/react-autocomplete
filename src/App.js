@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 function App() {
     const [users, setUsers] = useState([]);
     const [suggestions, setSuggestions] = useState([]);
+    const [text, setText] = useState('');
 
     useEffect(() => {
         const loadUsers = async () => {
@@ -15,15 +16,21 @@ function App() {
         loadUsers();
     }, []);
 
+    const onSuggestHandler = (suggestionText) => {
+        setText(suggestionText);
+        setSuggestions([]);
+    }
+
     const onChangeHandler = (event) => {
-        const text = event.target.value;
+        const inputText = event.target.value;
         let matches = [];
-        if (text.length > 0) {
+        if (inputText.length > 0) {
             matches = users.filter(usr => {
-                const regex = new RegExp(`${text}`, "gi");
+                const regex = new RegExp(`${inputText}`, "gi");
                 return usr.email.match(regex);
             })
         }
+        setText(inputText);
         setSuggestions(matches);
     }
 
@@ -32,11 +39,13 @@ function App() {
             <input type="text"
                    onChange={onChangeHandler}
                    className="col input mt-3"
+                   value={text}
             />
             {suggestions && suggestions.map((suggestion, i) =>
                 <div className="col border-right border-left border-bottom pointer suggestion"
                      key={i}
                      style={{cursor: 'pointer'}}
+                     onClick={() => onSuggestHandler(suggestion.email)}
                 >{suggestion.email}</div>
             )}
         </div>
