@@ -1,4 +1,5 @@
 import './App.css';
+import './custom.css'
 import axios from "axios";
 import {useEffect, useState} from "react";
 
@@ -33,7 +34,10 @@ function App() {
                    className="col input mt-3"
             />
             {suggestions && suggestions.map((suggestion, i) =>
-                <div className="col" key={i}>{suggestion.email}</div>
+                <div className="col border-right border-left border-bottom pointer suggestion"
+                     key={i}
+                     style={{cursor: 'pointer'}}
+                >{suggestion.email}</div>
             )}
         </div>
     );

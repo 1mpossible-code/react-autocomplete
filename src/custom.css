@@ -1,0 +1,7 @@
+.suggestion {
+    transition: .3s;
+}
+
+.suggestion:hover {
+    background-color: lightblue;
+}
