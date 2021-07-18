@@ -13,7 +13,7 @@ function App() {
             const response = await axios.get('https://reqres.in/api/users');
             setUsers(response.data.data);
         }
-        loadUsers();
+        loadUsers().catch(err => console.error(err));
     }, []);
 
     const onSuggestHandler = (suggestionText) => {
