@@ -6,6 +6,8 @@ React autocomplete app created in educational purposes.
 
 ![](./assets/example.gif)
 
+## Table of contents
+
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -44,9 +46,19 @@ Use cursor to select input field. You can type the part of user's email and app 
 
 To autocomplete email click on the suggestion. To hide suggestions click past the input field. 
 
-Emails:
-`george.bluth@reqres.in`, `janet.weaver@reqres.in`, `emma.wong@reqres.in`, `eve.holt@reqres.in`,
-`charles.morris@reqres.in`, `tracey.ramos@reqres.in`.
+Emails are:
+
+`george.bluth@reqres.in`,
+
+`janet.weaver@reqres.in`,
+
+`emma.wong@reqres.in`,
+
+`eve.holt@reqres.in`,
+
+`charles.morris@reqres.in`,
+
+`tracey.ramos@reqres.in`.
 
 ## Contributing
 
