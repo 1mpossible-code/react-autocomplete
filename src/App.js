@@ -68,19 +68,23 @@ function App() {
 
     return (
         <div className="container">
-            <input type="text"
-                   onChange={onChangeHandler}
-                   className="col input mt-3"
-                   value={text}
-                   onBlur={clearSuggestions}
-            />
-            {suggestions && suggestions.map((suggestion, i) =>
-                <div className="col border-right border-left border-bottom pointer suggestion"
-                     key={i}
-                     style={{cursor: 'pointer'}}
-                     onClick={() => onSuggestHandler(suggestion.email)}
-                >{suggestion.email}</div>
-            )}
+            <div className="row justify-content-center">
+                <div className="col-sm-12 col-md-6">
+                    <input type="text"
+                           onChange={onChangeHandler}
+                           className="col input mt-3"
+                           value={text}
+                           onBlur={clearSuggestions}
+                    />
+                    {suggestions && suggestions.map((suggestion, i) =>
+                        <div className="col border-right border-left border-bottom pointer suggestion"
+                             key={i}
+                             style={{cursor: 'pointer'}}
+                             onClick={() => onSuggestHandler(suggestion.email)}
+                        >{suggestion.email}</div>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }
