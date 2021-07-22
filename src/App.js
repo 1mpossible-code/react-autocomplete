@@ -2,6 +2,7 @@ import './App.css';
 import './custom.css'
 import axios from "axios";
 import {useEffect, useState} from "react";
+import Suggestion from "./components/Suggestion";
 
 function App() {
     // Initialize state variables
@@ -77,11 +78,11 @@ function App() {
                            onBlur={clearSuggestions}
                     />
                     {suggestions && suggestions.map((suggestion, i) =>
-                        <div className="col border-right border-left border-bottom pointer suggestion"
-                             key={i}
-                             style={{cursor: 'pointer'}}
-                             onClick={() => onSuggestHandler(suggestion.email)}
-                        >{suggestion.email}</div>
+                        <Suggestion
+                            onSuggest={onSuggestHandler}
+                            key={i}
+                            value={suggestion.email}
+                        />
                     )}
                 </div>
             </div>
