@@ -79,7 +79,7 @@ function App() {
                     />
                     {suggestions && suggestions.map((suggestion, i) =>
                         <Suggestion
-                            onSuggest={onSuggestHandler}
+                            onSuggest={() => onSuggestHandler(suggestion.email)}
                             key={i}
                             value={suggestion.email}
                         />
